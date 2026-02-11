@@ -1,3 +1,4 @@
 package simu.framework;
 
-public interface IEventType {}
+public interface IEventType {
+}
