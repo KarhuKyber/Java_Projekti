@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859b6c97-a44c-41c7-83c0-16e1b2152540" name="Changes" comment="lisätty EventType luokkaa ARRIVAL, DECISION, SERVICE_END ja EXIT">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/framework/IEventType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/framework/IEventType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/EventType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/EventType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/MyEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/MyEngine.java" afterDir="false" />
-    </list>
+    <list default="true" id="859b6c97-a44c-41c7-83c0-16e1b2152540" name="Changes" comment="MyEngine ja EventType muokattu. Lisätty esim. eventtyypit baarille ,sloteille ja blackjack." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,7 +90,7 @@
       <updated>1770725025196</updated>
       <workItem from="1770725026411" duration="893000" />
       <workItem from="1770725938402" duration="628000" />
-      <workItem from="1770726699839" duration="6830000" />
+      <workItem from="1770726699839" duration="7549000" />
     </task>
     <task id="LOCAL−00001" summary="commit">
       <option name="closed" value="true" />
@@ -118,7 +113,14 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1770729363128</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="MyEngine ja EventType muokattu. Lisätty esim. eventtyypit baarille ,sloteille ja blackjack.">
+      <option name="closed" value="true" />
+      <created>1770829028287</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1770829028287</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +129,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="lisätty EventType luokkaa ARRIVAL, DECISION, SERVICE_END ja EXIT" />
-    <option name="LAST_COMMIT_MESSAGE" value="lisätty EventType luokkaa ARRIVAL, DECISION, SERVICE_END ja EXIT" />
+    <MESSAGE value="MyEngine ja EventType muokattu. Lisätty esim. eventtyypit baarille ,sloteille ja blackjack." />
+    <option name="LAST_COMMIT_MESSAGE" value="MyEngine ja EventType muokattu. Lisätty esim. eventtyypit baarille ,sloteille ja blackjack." />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
