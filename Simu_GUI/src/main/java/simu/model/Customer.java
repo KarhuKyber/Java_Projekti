@@ -8,7 +8,6 @@ import simu.framework.Trace;
 // Used by simulation engine to model player behaviour
 
 
-// TODO:
 // Customer to be implemented according to the requirements of the simulation model (data!)
 public class Customer {
 	// money customer had when entering casino
