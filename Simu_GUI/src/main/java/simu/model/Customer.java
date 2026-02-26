@@ -10,7 +10,7 @@ import simu.framework.Trace;
 
 // Customer to be implemented according to the requirements of the simulation model (data!)
 public class Customer {
-	// money customer had when entering casino
+	// money customer had when entering casinoo
 	private int startMoney;
 	// current amount of money available for betting
 	private int money;
