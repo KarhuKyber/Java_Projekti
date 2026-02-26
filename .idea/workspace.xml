@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859b6c97-a44c-41c7-83c0-16e1b2152540" name="Changes" comment="commit">
+    <list default="true" id="859b6c97-a44c-41c7-83c0-16e1b2152540" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/EventType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/EventType.java" afterDir="false" />

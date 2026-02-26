@@ -10,136 +10,179 @@ import simu.framework.Event;
 
 import java.util.Random;
 
-
 public class MyEngine extends Engine {
-    private ArrivalProcess arrivalProcess;
-    private final Random rng = new Random(1);
 
-    // Lisäsin logiikkaa jokaisellle tapahtumalle, miten toimii slotit, ruletti jne..
-    // Roulette: risky game -> lower win chance, higher payout
-    private void resolveRouletteRound(Customer c) {
+	private ArrivalProcess arrivalProcess;
+	private final Random rng = new Random(1);
 
-        int bet = c.calcBet();
+	public MyEngine(IControllerMtoV controller) {
+		super(controller);
 
-        // Example model:
-        //  - 60% lose (stress increases)
-        //  - 35% small win (stress decreases a bit)
-        //  - 5% big win (jackpot feeling)
-        double r = rng.nextDouble();
+		// 4 service points: Bar, Slots, Blackjack, Roulette
+		servicePoints = new ServicePoint[4];
 
-        if (r < 0.60) {
-            // loses the bet
-            c.applyLoss(bet);
-        } else if (r < 0.95) {
-            // small win: profit ~ 1.5x bet
-            // (applyWin should add money; choose what "amount" means in your Customer)
-            c.applyWin((int) Math.round(bet * 1.5));
-        } else {
-            // big win: rare, bigger payout
-            c.applyWin(bet * 6);
-        }
-    }
+		// 0 = Bar
+		servicePoints[0] =
+				new ServicePoint(new Normal(5, 2),
+						eventList,
+						EventType.BAR_SERVICE_END);
 
-    private void resolveSlotsRound(Customer c) {
-        int bet = c.calcBet();
-        if (rng.nextDouble() < 0.45) {
-            c.applyWin((int) Math.round(bet * 1.8));
-        } else {
-            c.applyLoss(bet);
-        }
-    }
+		// 1 = Slots
+		servicePoints[1] =
+				new ServicePoint(new Normal(15, 8),
+						eventList,
+						EventType.SLOTS_PLAY_END);
+
+		// 2 = Blackjack
+		servicePoints[2] =
+				new ServicePoint(new Normal(20, 10),
+						eventList,
+						EventType.BLACKJACK_GAME_END);
+
+		// 3 = Roulette
+		servicePoints[3] =
+				new ServicePoint(new Normal(12, 6),
+						eventList,
+						EventType.ROULETTE_GAME_END);
+
+		arrivalProcess =
+				new ArrivalProcess(new Negexp(15, 5),
+						eventList,
+						EventType.CASINO_ARRIVAL);
+	}
+
+	@Override
+	protected void initialization() {
+		arrivalProcess.generateNext();
+	}
+
+	@Override
+	protected void runEvent(Event t) {
+
+		Customer c;
+
+		switch ((EventType) t.getType()) {
+
+			case CASINO_ARRIVAL:
+
+				Customer newCustomer = new Customer();
+				arrivalProcess.generateNext();
+				controller.visualiseCustomer();
+
+				int randomServicePoint = rng.nextInt(4);
+				servicePoints[randomServicePoint].addQueue(newCustomer);
+				break;
+
+			case BAR_SERVICE_END:
+
+				c = servicePoints[0].removeQueue();
+				c.applyDrink();
+				decideNextActivity(c);
+				break;
+
+			case SLOTS_PLAY_END:
+
+				c = servicePoints[1].removeQueue();
+				resolveSlotsRound(c);
+				decideNextActivity(c);
+				break;
+
+			case BLACKJACK_GAME_END:
+
+				c = servicePoints[2].removeQueue();
+				resolveBlackjackRound(c);
+				decideNextActivity(c);
+				break;
+
+			case ROULETTE_GAME_END:
+
+				c = servicePoints[3].removeQueue();
+				resolveRouletteRound(c);
+				decideNextActivity(c);
+				break;
+		}
+	}
+
+	private void decideNextActivity(Customer c) {
+
+		// If bankrupt -> leaves casino (stop scheduling)
+		if (c.isBankrupt()) {
+			c.setRemovalTime(Clock.getInstance().getTime());
+			return;
+		}
+
+		// Optional: sometimes leave when calm + profitable
+		if (c.getStress() < 20 && c.getMoney() > c.getStartMoney() && rng.nextDouble() < 0.10) {
+			c.setRemovalTime(Clock.getInstance().getTime());
+			return;
+		}
+
+		// Time-of-day based drinking chance
+		double hour = (Clock.getInstance().getTime() / 60.0) % 24.0;
+		boolean evening = (hour >= 18.0 || hour < 3.0);
+
+		double s = c.getStress() / 100.0;    // 0..1
+		double alc = c.getAlcohol() / 100.0; // 0..1
+
+		// Weights: higher weight => more likely
+		double wBar = (evening ? 1.0 : 0.3) + 1.5 * s;           // stress + evening -> bar
+		double wSlots = 1.0 + 1.2 * s + 0.6 * alc;               // stress/alcohol -> slots
+		double wBlackjack = Math.max(0.2, 1.0 - 0.4 * s - 0.2 * alc); // calmer -> blackjack
+		double wRoulette = 1.2 + 1.5 * s + 0.8 * alc;            // risky -> roulette
+
+		double total = wBar + wSlots + wBlackjack + wRoulette;
+		double r = rng.nextDouble() * total;
+
+		if (r < wBar) {
+			servicePoints[0].addQueue(c);
+		} else if (r < wBar + wSlots) {
+			servicePoints[1].addQueue(c);
+		} else if (r < wBar + wSlots + wBlackjack) {
+			servicePoints[2].addQueue(c);
+		} else {
+			servicePoints[3].addQueue(c);
+		}
+	}
 
 
-    private void resolveBlackjackRound(Customer c) {
-        int bet = c.calcBet();
-        if (rng.nextDouble() < 0.49) {
-            c.applyWin((int) Math.round(bet * 1.2));
-        } else {
-            c.applyLoss(bet);
-        }
-    }
+	private void resolveSlotsRound(Customer c) {
 
-    public MyEngine(IControllerMtoV controller) { // NEW
-        super(controller); // NEW
+		int bet = c.calcBet();
 
-        servicePoints = new ServicePoint[4];
+		if (rng.nextDouble() < 0.45) {
+			c.applyWin((int)Math.round(bet * 1.8));
+		} else {
+			c.applyLoss(bet);
+		}
+	}
 
-        // KASINON PALVELUPISTEET
-        // Baari - palveluaika noin 5 min, keskihajonta 2
-        servicePoints[0] = new ServicePoint(new Normal(5, 2), eventList, EventType.BAR_SERVICE_END);
+	private void resolveBlackjackRound(Customer c) {
 
-        // Peliautomaatit - peliaika noin 15 min, keskihajonta 8
-        servicePoints[1] = new ServicePoint(new Normal(15, 8), eventList, EventType.SLOTS_PLAY_END);
+		int bet = c.calcBet();
 
-        // Blackjack - peliaika noin 20 min, keskihajonta 10
-        servicePoints[2] = new ServicePoint(new Normal(20, 10), eventList, EventType.BLACKJACK_GAME_END);
-        // Roulette - peliaika noin 12 min, keskihajonta 6
-        servicePoints[3] = new ServicePoint(new Normal(12, 6), eventList, EventType.ROULETTE_GAME_END);
+		if (rng.nextDouble() < 0.49) {
+			c.applyWin((int)Math.round(bet * 1.2));
+		} else {
+			c.applyLoss(bet);
+		}
+	}
 
+	private void resolveRouletteRound(Customer c) {
 
-        arrivalProcess = new ArrivalProcess(new Negexp(15, 5), eventList, EventType.CASINO_ARRIVAL);
-    }
+		int bet = c.calcBet();
 
-    @Override
-    protected void initialization() {
-        arrivalProcess.generateNext();     // First arrival in the system
-    }
+		double r = rng.nextDouble();
 
-    @Override
-    protected void runEvent(Event t) {  // B phase events
-        Customer a;
+		if (r < 0.60) {
+			c.applyLoss(bet);
+		} else if (r < 0.95) {
+			c.applyWin((int)Math.round(bet * 1.5));
+		} else {
+			c.applyWin(bet * 6);
+		}
+	}
 
-        switch ((EventType) t.getType()) {
+	protected void results() {
 
-            case CASINO_ARRIVAL:
-
-                Customer newCustomer = new Customer();
-                arrivalProcess.generateNext();
-                controller.visualiseCustomer();
-
-                //satunnainen palvelupisteen valinta
-                int randomServicePoint = rng.nextInt(4);
-                servicePoints[randomServicePoint].addQueue(newCustomer);
-                break;
-
-            case BAR_SERVICE_END:
-                a = servicePoints[0].removeQueue();
-                decideNextActivity(a);
-                //jos lähtee baariin niin juo
-                a.applyDrink();
-                break;
-
-            case SLOTS_PLAY_END:
-                a = servicePoints[1].removeQueue();
-                decideNextActivity(a);
-                resolveSlotsRound(a);
-                break;
-
-            case BLACKJACK_GAME_END:
-                a = servicePoints[2].removeQueue();
-                decideNextActivity(a);
-                resolveBlackjackRound(a);
-                break;
-            case ROULETTE_GAME_END:
-                a = servicePoints[3].removeQueue();
-                decideNextActivity(a);
-                resolveRouletteRound(a);
-                break;
-        }
-
-
-    }
-
-    private void decideNextActivity(Customer customer) {
-        //logiikka tähän
-    }
-
-    @Override
-    protected void results() {
-        // OLD text UI
-        //System.out.println("Simulation ended at " + Clock.getInstance().getClock());
-        //System.out.println("Results ... are currently missing");
-        // NEW GUI
-        controller.showEndTime(Clock.getInstance().getTime());
-    }
+	}
 }

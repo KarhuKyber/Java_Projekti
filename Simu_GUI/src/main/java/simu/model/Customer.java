@@ -10,6 +10,16 @@ import simu.framework.Trace;
 
 // Customer to be implemented according to the requirements of the simulation model (data!)
 public class Customer {
+	private double removalTime;
+
+	public void setRemovalTime(double removalTime) {
+		this.removalTime = removalTime;
+	}
+
+	public double getRemovalTime() {
+		return removalTime;
+	}
+
 	// money customer had when entering casinoo
 	private int startMoney;
 	// current amount of money available for betting
