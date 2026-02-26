@@ -124,6 +124,10 @@ public class Customer {
 
 		stress = clamp0_100(stress - 10);
 
+		// drunk gamblers sometimes lose control
+		if (alcohol > 70 && Math.random() < 0.2) {
+			tilt = true;
+		}
 	}
 	// checks if gambler has no money left and must exit casino
 	public boolean isBankrupt() {
