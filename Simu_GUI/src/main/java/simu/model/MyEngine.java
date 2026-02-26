@@ -16,7 +16,7 @@ public class MyEngine extends Engine {
 	public MyEngine(IControllerMtoV controller){ // NEW
 		super(controller); // NEW
 		
-		servicePoints = new ServicePoint[3];
+		servicePoints = new ServicePoint[4];
 
 		// KASINON PALVELUPISTEET
 		// Baari - palveluaika noin 5 min, keskihajonta 2
@@ -30,7 +30,7 @@ public class MyEngine extends Engine {
 
 
 		//ROULETTE - PELI 10 MIN, KESKIHAJONTA 9
-		servicePoints[3]=new ServicePoint(new Normal(20,10), eventList, EventType.ROULETTE_GAME_END);
+		servicePoints[3]=new ServicePoint(new Normal(10,9), eventList, EventType.ROULETTE_GAME_END);
 
 
 		
