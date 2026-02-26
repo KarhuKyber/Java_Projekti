@@ -1,49 +1,62 @@
 package simu.model;
 
-import eduni.distributions.ContinuousGenerator;
 import simu.framework.Clock;
 import simu.framework.Event;
 import simu.framework.EventList;
-
+import simu.framework.Trace;
+import eduni.distributions.ContinuousGenerator;
 import java.util.LinkedList;
 
-// TODO:
-// Service Point functionalities & calculations (+ variables needed) and reporting to be implemented
 public class ServicePoint {
-	private LinkedList<Customer> jono = new LinkedList<Customer>(); // Data Structure used
+	private LinkedList<Customer> queue = new LinkedList<>(); // Asiakkaat jonossa
 	private ContinuousGenerator generator;
 	private EventList eventList;
-	private EventType eventTypeScheduled;
-	//Queuestrategy strategy; // option: ordering of the customer
-	private boolean reserved = false;
+	private EventType scheduledEventType;
 
-	public ServicePoint(ContinuousGenerator generator, EventList tapahtumalista, EventType tyyppi){
-		this.eventList = tapahtumalista;
-		this.generator = generator;
-		this.eventTypeScheduled = tyyppi;
-				
+	private boolean reserved = false; // Onko palvelupiste varattu (peli käynnissä)
+
+	public ServicePoint(ContinuousGenerator g, EventList tl, EventType type) {
+		this.generator = g;
+		this.eventList = tl;
+		this.scheduledEventType = type;
 	}
 
-	public void addQueue(Customer a){   // First customer at the queue is always on the service
-		jono.add(a);
+	// Lisää asiakas jonoon (esim. kun asiakas saapuu Blackjack-pöydälle)
+	public void addQueue(Customer a) {
+		queue.add(a);
 	}
 
-	public Customer removeQueue(){		// Remove serviced customer
+	// Poistaa ja palauttaa asiakkaan, kun peli/palvelu päättyy
+	public Customer removeQueue() {
 		reserved = false;
-		return jono.poll();
+		return queue.poll();
 	}
 
-	public void beginService() {  		// Begins a new service, customer is on the queue during the service
+	// Aloittaa palvelun jonon ensimmäiselle asiakkaalle
+	public void beginService() {
+		if (queue.isEmpty()) return;
+
+		Trace.out(Trace.Level.INFO, "Aloitetaan palvelu pisteessä: " + scheduledEventType);
+
 		reserved = true;
-		double serviceTime = generator.sample();
-		eventList.add(new Event(eventTypeScheduled, Clock.getInstance().getTime()+serviceTime));
+		double serviceTime = generator.sample(); // Arvotaan kesto (esim. pelikierros)
+
+		// Luodaan päättymistapahtuma tapahtumalistalle
+		// Nykyinen aika + arvottu kesto
+		eventList.add(new Event(scheduledEventType, Clock.getInstance().getClock() + serviceTime));
 	}
 
-	public boolean isReserved(){
+	// Tarkistetaan onko piste vapaa ja onko jonoa
+	public boolean isReserved() {
 		return reserved;
 	}
 
-	public boolean isOnQueue(){
-		return jono.size() != 0;
+	public boolean isOnQueue() {
+		return !queue.isEmpty();
+	}
+
+	// Apumetodi: Palauttaa jonossa olevan asiakkaan ilman poistamista
+	public Customer getFirst() {
+		return queue.peek();
 	}
 }
