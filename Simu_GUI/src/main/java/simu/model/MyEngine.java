@@ -20,13 +20,17 @@ public class MyEngine extends Engine {
 
 		// KASINON PALVELUPISTEET
 		// Baari - palveluaika noin 5 min, keskihajonta 2
-		servicePoints[3]=new ServicePoint(new Normal(5,2), eventList, EventType.BAR_SERVICE_END);
+		servicePoints[0]=new ServicePoint(new Normal(5,2), eventList, EventType.BAR_SERVICE_END);
 
 		// Peliautomaatit - peliaika noin 15 min, keskihajonta 8
-		servicePoints[4]=new ServicePoint(new Normal(15,8), eventList, EventType.SLOTS_PLAY_END);
+		servicePoints[1]=new ServicePoint(new Normal(15,8), eventList, EventType.SLOTS_PLAY_END);
 
 		// Blackjack - peliaika noin 20 min, keskihajonta 10
-		servicePoints[5]=new ServicePoint(new Normal(20,10), eventList, EventType.BLACKJACK_GAME_END);
+		servicePoints[2]=new ServicePoint(new Normal(20,10), eventList, EventType.BLACKJACK_GAME_END);
+
+
+		//ROULETTE - PELI 10 MIN, KESKIHAJONTA 9
+		servicePoints[3]=new ServicePoint(new Normal(20,10), eventList, EventType.ROULETTE_GAME_END);
 
 
 		
@@ -68,6 +72,11 @@ public class MyEngine extends Engine {
 
 		case BLACKJACK_GAME_END:
 			a = servicePoints[2].removeQueue();
+			decideNextActivity(a);
+			break;
+
+			case ROULETTE_GAME_END:
+			a = servicePoints[3].removeQueue();
 			decideNextActivity(a);
 			break;
 		}

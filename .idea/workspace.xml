@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859b6c97-a44c-41c7-83c0-16e1b2152540" name="Changes" comment="MyEngine ja EventType muokattu. Lisätty esim. eventtyypit baarille ,sloteille ja blackjack.">
+    <list default="true" id="7706ae69-48f1-4411-a892-884d58c589b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/MyEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/MyEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/ServicePoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/ServicePoint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CopilotPersistence">
-    <persistenceIdMap>
-      <entry key="_/Users/amoskaheinen/IdeaProjects/Java_Projekti" value="39TfY3vpRhFKjgmyfdAdHHP3Lb2" />
-    </persistenceIdMap>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,13 +19,13 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;kirillaaltonen&quot;
+    &quot;assignee&quot;: &quot;KarhuKyber&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/KarhuKyber/Java_Projekti&quot;,
-    &quot;accountId&quot;: &quot;ce20fb64-eac0-4af8-ae58-1bcd4bef7df2&quot;
+    &quot;url&quot;: &quot;https://github.com/KarhuKyber/Java_Projekti.git&quot;,
+    &quot;accountId&quot;: &quot;975459f5-78ea-428f-80a3-e4e908833a51&quot;
   }
 }</component>
   <component name="McpProjectServerCommands">
@@ -38,9 +33,9 @@
     <urls />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
+  &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="39TfY3vpRhFKjgmyfdAdHHP3Lb2" />
+  <component name="ProjectId" id="399yuHQvbJsXCxu8qUQPQxocXwl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -48,12 +43,13 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainApp.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
@@ -63,85 +59,70 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\alokas\Downloads\Java_Projekti" />
+      <recent name="C:\Users\KARHU\IdeaProjects\Projekti\Simu_GUI\src\main\java" />
+      <recent name="C:\Users\KARHU\IdeaProjects\Projekti\Animation\main\java" />
+      <recent name="C:\Users\KARHU\IdeaProjects\Projekti\Animation\main\resources" />
+      <recent name="C:\Users\KARHU\IdeaProjects\Projekti" />
     </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApp" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.MainApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.30387.90" />
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.29346.240" />
       </set>
     </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="859b6c97-a44c-41c7-83c0-16e1b2152540" name="Changes" comment="" />
-      <created>1770725025196</created>
+      <changelist id="7706ae69-48f1-4411-a892-884d58c589b6" name="Changes" comment="" />
+      <created>1770724027228</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1770725025196</updated>
-      <workItem from="1770725026411" duration="893000" />
-      <workItem from="1770725938402" duration="628000" />
-      <workItem from="1770726699839" duration="7549000" />
+      <updated>1770724027228</updated>
+      <workItem from="1770724028486" duration="108000" />
+      <workItem from="1770726351939" duration="3757000" />
+      <workItem from="1771795740039" duration="769000" />
+      <workItem from="1771949713708" duration="2392000" />
     </task>
-    <task id="LOCAL−00001" summary="commit">
-      <option name="closed" value="true" />
-      <created>1770725089991</created>
-      <option name="number" value="LOCAL−00001" />
-      <option name="presentableId" value="LOCAL−00001" />
-      <updated>1770725089991</updated>
-    </task>
-    <task id="LOCAL−00002" summary="commit">
-      <option name="closed" value="true" />
-      <created>1770725124654</created>
-      <option name="number" value="LOCAL−00002" />
-      <option name="presentableId" value="LOCAL−00002" />
-      <updated>1770725124654</updated>
-    </task>
-    <task id="LOCAL−00003" summary="lisätty EventType luokkaa ARRIVAL, DECISION, SERVICE_END ja EXIT">
-      <option name="closed" value="true" />
-      <created>1770729363128</created>
-      <option name="number" value="LOCAL−00003" />
-      <option name="presentableId" value="LOCAL−00003" />
-      <updated>1770729363128</updated>
-    </task>
-    <task id="LOCAL−00004" summary="MyEngine ja EventType muokattu. Lisätty esim. eventtyypit baarille ,sloteille ja blackjack.">
-      <option name="closed" value="true" />
-      <created>1770829028287</created>
-      <option name="number" value="LOCAL−00004" />
-      <option name="presentableId" value="LOCAL−00004" />
-      <updated>1770829028287</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="commit" />
-    <MESSAGE value="lisätty EventType luokkaa ARRIVAL, DECISION, SERVICE_END ja EXIT" />
-    <MESSAGE value="MyEngine ja EventType muokattu. Lisätty esim. eventtyypit baarille ,sloteille ja blackjack." />
-    <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
-  </component>
-  <component name="github-copilot-workspace">
-    <instructionFileLocations>
-      <option value=".github/instructions" />
-    </instructionFileLocations>
-    <promptFileLocations>
-      <option value=".github/prompts" />
-    </promptFileLocations>
   </component>
 </project>
