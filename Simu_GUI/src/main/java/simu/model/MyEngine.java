@@ -7,6 +7,7 @@ import simu.framework.ArrivalProcess;
 import simu.framework.Clock;
 import simu.framework.Engine;
 import simu.framework.Event;
+import java.util.Random;
 
 
 public class MyEngine extends Engine {
@@ -16,12 +17,21 @@ public class MyEngine extends Engine {
 		super(controller); // NEW
 		
 		servicePoints = new ServicePoint[3];
-	
-		servicePoints[0]=new ServicePoint(new Normal(10,6), eventList, EventType.DEP1);
-		servicePoints[1]=new ServicePoint(new Normal(10,10), eventList, EventType.DEP2);
-		servicePoints[2]=new ServicePoint(new Normal(5,3), eventList, EventType.DEP3);
+
+		// KASINON PALVELUPISTEET
+		// Baari - palveluaika noin 5 min, keskihajonta 2
+		servicePoints[3]=new ServicePoint(new Normal(5,2), eventList, EventType.BAR_SERVICE_END);
+
+		// Peliautomaatit - peliaika noin 15 min, keskihajonta 8
+		servicePoints[4]=new ServicePoint(new Normal(15,8), eventList, EventType.SLOTS_PLAY_END);
+
+		// Blackjack - peliaika noin 20 min, keskihajonta 10
+		servicePoints[5]=new ServicePoint(new Normal(20,10), eventList, EventType.BLACKJACK_GAME_END);
+
+
 		
-		arrivalProcess = new ArrivalProcess(new Negexp(15,5), eventList, EventType.ARR1);
+
+		arrivalProcess = new ArrivalProcess(new Negexp(15,5), eventList, EventType.CASINO_ARRIVAL);
 	}
 
 	@Override
@@ -34,28 +44,39 @@ public class MyEngine extends Engine {
 		Customer a;
 
 		switch ((EventType)t.getType()){
-		case ARR1:
-			servicePoints[0].addQueue(new Customer());
+
+			case CASINO_ARRIVAL:
+
+			Customer newCustomer = new Customer();
 			arrivalProcess.generateNext();
-			controller.visualiseCustomer(); // NEW
+			controller.visualiseCustomer();
+
+			//satunnainen palvelupisteen valinta
+			int randomServicePoint = new Random().nextInt(3);
+			servicePoints[randomServicePoint].addQueue(newCustomer);
 			break;
 
-		case DEP1:
+		case BAR_SERVICE_END:
 			a = servicePoints[0].removeQueue();
-			 servicePoints[1].addQueue(a);
+			 decideNextActivity(a);
 			break;
 
-		case DEP2:
+		case SLOTS_PLAY_END:
 			a = servicePoints[1].removeQueue();
-			servicePoints[2].addQueue(a);
+			decideNextActivity(a);
 			break;
 
-		case DEP3:
+		case BLACKJACK_GAME_END:
 			a = servicePoints[2].removeQueue();
-			a.setRemovalTime(Clock.getInstance().getTime());
-			a.reportResults();
+			decideNextActivity(a);
 			break;
-		}	
+		}
+
+
+	}
+
+	private void decideNextActivity(Customer customer) {
+		//logiikka tähän
 	}
 
 	@Override
