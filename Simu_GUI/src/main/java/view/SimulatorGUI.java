@@ -26,6 +26,7 @@ public class SimulatorGUI extends Application implements ISimulatorUI {
 	private IControllerVtoM controller;
 
 	// UI Components:
+	private TextArea statsArea;
 	private TextField time;
 	private TextField delay;
 	private Label results;
@@ -49,6 +50,7 @@ public class SimulatorGUI extends Application implements ISimulatorUI {
 	@Override
 	public void start(Stage primaryStage) {
 		// UI creation
+
 		try {
 			primaryStage.setOnCloseRequest(t -> {
                 Platform.exit();
@@ -105,11 +107,20 @@ public class SimulatorGUI extends Application implements ISimulatorUI {
 	        grid.add(delay, 1, 1);
 	        grid.add(resultLabel, 0, 2);
 	        grid.add(results, 1, 2);
-	        grid.add(startButton,0, 3);
-	        grid.add(speedUpButton, 0, 4);
-	        grid.add(slowButton, 1, 4);
-	        
-	        display = new Visualisation2(400,200);
+			grid.add(startButton,0, 3);
+			grid.add(speedUpButton, 0, 4);
+			grid.add(slowButton, 1, 4);
+
+			statsArea = new TextArea();
+			statsArea.setEditable(false);
+			statsArea.setPrefHeight(150);
+			statsArea.setPrefWidth(320);
+			statsArea.setWrapText(true);
+
+			grid.add(new Label("Stats:"), 0, 5);
+			grid.add(statsArea, 0, 6, 2, 1);
+
+			display = new Visualisation2(400,200);
 			//display = new Visualisation2(400,200);
 
 	        // Fill the box:
@@ -145,6 +156,10 @@ public class SimulatorGUI extends Application implements ISimulatorUI {
 		 return display;
 	}
 
+	@Override
+	public void setStats(String text) {
+		statsArea.setText(text);
+	}
 	/* JavaFX-application (UI) start-up */
 	public static void main(String[] args) {
 		launch(args);

@@ -30,4 +30,8 @@ public class Visualisation extends Canvas implements IVisualisation {
 			j += 10;
 		}
 	}
+	@Override
+	public void updateCasinoView(int inside, int barQ, int slotsQ, int bjQ, int rouletteQ) {
+		// not used in our casino project, only kept for compatibility
+	}
 }

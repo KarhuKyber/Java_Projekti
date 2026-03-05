@@ -44,7 +44,17 @@ public class Controller implements IControllerVtoM, IControllerMtoV {   // NEW
 	}
 
 	@Override
+
 	public void visualiseCustomer() {
 		Platform.runLater(() -> ui.getVisualisation().newCustomer());
 	}
+	@Override
+	public void showStats(String text) {
+		Platform.runLater(() -> ui.setStats(text));
+	}
+	@Override
+	public void updateCasinoView(int inside, int barQ, int slotsQ, int bjQ, int rouletteQ) {
+		Platform.runLater(() -> ui.getVisualisation().updateCasinoView(inside, barQ, slotsQ, bjQ, rouletteQ));
+	}
+
 }

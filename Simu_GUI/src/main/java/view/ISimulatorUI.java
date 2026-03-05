@@ -4,7 +4,7 @@ public interface ISimulatorUI {
 	// The Controller needs input which is passed to the Engine
 	public double getTime();
 	public long getDelay();
-	
+	public void setStats(String text);
 	// Controller gives Engine produced results to the UI
 	public void setEndingTime(double time);
 	

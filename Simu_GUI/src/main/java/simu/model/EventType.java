@@ -19,5 +19,5 @@ public enum EventType implements IEventType {
 	//-Blackjack
 	BLACKJACK_ARRIVAL, BLACKJACK_GAME_END,
 	//-Blackjack
-	ROULETTE_ARRIVAL, ROULETTE_GAME_END,
+	ROULETTE_ARRIVAL, ROULETTE_GAME_END
 }

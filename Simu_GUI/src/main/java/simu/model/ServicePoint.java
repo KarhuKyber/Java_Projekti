@@ -15,6 +15,9 @@ public class ServicePoint {
 
 	private boolean reserved = false; // Onko palvelupiste varattu (peli käynnissä)
 
+	public int queueLength() {
+		return queue.size();
+	}
 	public ServicePoint(ContinuousGenerator g, EventList tl, EventType type) {
 		this.generator = g;
 		this.eventList = tl;
@@ -43,7 +46,7 @@ public class ServicePoint {
 
 		// Luodaan päättymistapahtuma tapahtumalistalle
 		// Nykyinen aika + arvottu kesto
-		eventList.add(new Event(scheduledEventType, Clock.getInstance().getClock() + serviceTime));
+		eventList.add(new Event(scheduledEventType, Clock.getInstance().getTime() + serviceTime));
 	}
 
 	// Tarkistetaan onko piste vapaa ja onko jonoa

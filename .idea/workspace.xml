@@ -4,11 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859b6c97-a44c-41c7-83c0-16e1b2152540" name="Changes" comment="">
+    <list default="true" id="859b6c97-a44c-41c7-83c0-16e1b2152540" name="Changes" comment="(TOIVOTTAVASTI TÄÄ NYT MENEE LÄPI, en muista enää tarkalleen mitä kaikke tein mutta ainakin: Lisätty kasinon tapahtumalogiikka MyEngineiin.&#10;Lisättiin ruletti palvelupiste ja pelilogiikka.&#10;Toteutettiin juomisen vaikutus (stress ↓, alcohol ↑) sekä tilt-mahdollisuus.&#10;Parannettiin asiakkaan siirtymistä eri pelien välillä.">
+      <change afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/Stats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/controller/IControllerMtoV.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/controller/IControllerMtoV.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/EventType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/EventType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/MyEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/MyEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/ServicePoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/ServicePoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/ISimulatorUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/ISimulatorUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/IVisualisation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/IVisualisation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/SimulatorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/SimulatorGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/Visualisation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/Visualisation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/Visualisation2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/Visualisation2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/controller/IControllerMtoV.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/controller/IControllerMtoV.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/EventType.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/EventType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/MyEngine$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/MyEngine$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/MyEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/MyEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/ServicePoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/ServicePoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/view/ISimulatorUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/view/ISimulatorUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/view/IVisualisation.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/view/IVisualisation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/view/SimulatorGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/view/SimulatorGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/view/Visualisation.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/view/Visualisation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/view/Visualisation2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/view/Visualisation2.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,21 +40,31 @@
       <entry key="_/Users/amoskaheinen/IdeaProjects/Java_Projekti" value="39TfY3vpRhFKjgmyfdAdHHP3Lb2" />
     </persistenceIdMap>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;kirillaaltonen&quot;
-  }
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;reviewState&quot;: &quot;AWAITING_REVIEW&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {}
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/KarhuKyber/Java_Projekti&quot;,
-    &quot;accountId&quot;: &quot;ce20fb64-eac0-4af8-ae58-1bcd4bef7df2&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/KarhuKyber/Java_Projekti.git",
+    "accountId": "98a0d6cc-27fc-42f1-abc2-dcba44685280"
   }
-}</component>
+}]]></component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -81,8 +111,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.30387.90" />
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.29346.240" />
       </set>
     </attachedChunks>
   </component>
@@ -96,6 +126,7 @@
       <workItem from="1770725026411" duration="893000" />
       <workItem from="1770725938402" duration="628000" />
       <workItem from="1770726699839" duration="7549000" />
+      <workItem from="1772707955021" duration="5152000" />
     </task>
     <task id="LOCAL−00001" summary="commit">
       <option name="closed" value="true" />
@@ -132,7 +163,14 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1772101163212</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="(TOIVOTTAVASTI TÄÄ NYT MENEE LÄPI, en muista enää tarkalleen mitä kaikke tein mutta ainakin: Lisätty kasinon tapahtumalogiikka MyEngineiin.&#10;Lisättiin ruletti palvelupiste ja pelilogiikka.&#10;Toteutettiin juomisen vaikutus (stress ↓, alcohol ↑) sekä tilt-mahdollisuus.&#10;Parannettiin asiakkaan siirtymistä eri pelien välillä.">
+      <option name="closed" value="true" />
+      <created>1772145091560</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1772145091560</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,7 +180,8 @@
     <MESSAGE value="lisätty EventType luokkaa ARRIVAL, DECISION, SERVICE_END ja EXIT" />
     <MESSAGE value="MyEngine ja EventType muokattu. Lisätty esim. eventtyypit baarille ,sloteille ja blackjack." />
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="(TOIVOTTAVASTI TÄÄ NYT MENEE LÄPI, en muista enää tarkalleen mitä kaikke tein mutta ainakin: Lisätty kasinon tapahtumalogiikka MyEngineiin.&#10;Lisättiin ruletti palvelupiste ja pelilogiikka.&#10;Toteutettiin juomisen vaikutus (stress ↓, alcohol ↑) sekä tilt-mahdollisuus.&#10;Parannettiin asiakkaan siirtymistä eri pelien välillä." />
+    <option name="LAST_COMMIT_MESSAGE" value="(TOIVOTTAVASTI TÄÄ NYT MENEE LÄPI, en muista enää tarkalleen mitä kaikke tein mutta ainakin: Lisätty kasinon tapahtumalogiikka MyEngineiin.&#10;Lisättiin ruletti palvelupiste ja pelilogiikka.&#10;Toteutettiin juomisen vaikutus (stress ↓, alcohol ↑) sekä tilt-mahdollisuus.&#10;Parannettiin asiakkaan siirtymistä eri pelien välillä." />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
