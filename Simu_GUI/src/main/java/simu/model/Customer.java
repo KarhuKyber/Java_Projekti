@@ -1,137 +1,111 @@
 package simu.model;
 
-import simu.framework.Clock;
-import simu.framework.Trace;
-
-// I didnt delete original code, im afraid that it will broke something, but anyways, i created Casino gambler model
-// Stores psychological states, personality and financial condition,
-// Used by simulation engine to model player behaviour
-
-
-// Customer to be implemented according to the requirements of the simulation model (data!)
+/**
+ * Casino gambler model.
+ * Stores financial state and psychological state, used by the engine to model behaviour.
+ */
 public class Customer {
+
+	// Optional: if we want to mark exit time (not required for stats, but ok to keep)
 	private double removalTime;
 
-	public void setRemovalTime(double removalTime) {
-		this.removalTime = removalTime;
-	}
+	// Money at entry
+	private final int startMoney;
 
-	public double getRemovalTime() {
-		return removalTime;
-	}
-
-	// money customer had when entering casinoo
-	private int startMoney;
-	// current amount of money available for betting
+	// Current money
 	private int money;
-	// increases after losses, decreases after wins or drinks
+
+	// 0..100 (rises after losses, lowers after wins / drinks)
 	private int stress;
-	// alcohol intoxication level (0..100)
-    // increases when visiting bar
+
+	// 0..100
 	private int alcohol;
-	// personality risk multiplier (affects bet size)
-	private double risk;
-	// ability to control behaviour under stress/alcohol
-	private double selfControl;
-	// true when gambler loses control (aggressive betting)
+
+	// Personality risk multiplier (affects bet size)
+	private final double risk;
+
+	// Individual preference to go to bar (0.8..1.2). Helps create variation.
+	private final double barPreference;
+
+	// Aggressive betting mode
 	private boolean tilt;
 
-	// creates new gambler entering the casino
-    // assigns id, arrival time and initial personality parameters
 	public Customer() {
-		// Casino fields initialisation (our project)
-
-        // Start money: simple version (later we can switch to distribution-based)
-		startMoney = 100 + (int)(Math.random() * 401); // 100..500
+		startMoney = 100 + (int) (Math.random() * 401); // 100..500
 		money = startMoney;
 
-        // Stress/alcohol start values
-		stress = 10;      // calm at start
-		alcohol = 0;      // sober at start
+		stress = 10;
+		alcohol = 0;
 		tilt = false;
 
-        // Personality (risk and self-control): 0.8..1.2
-		risk = 0.8 + Math.random() * 0.4;
-		selfControl = 0.8 + Math.random() * 0.4;
+		risk = 0.8 + Math.random() * 0.4;          // 0.8..1.2
+		barPreference = 0.8 + Math.random() * 0.4; // 0.8..1.2
 	}
 
-
-	// getters used by simulation engine to read customer state
+	// --- Getters ---
 	public int getMoney() { return money; }
 	public int getStartMoney() { return startMoney; }
 	public int getStress() { return stress; }
 	public int getAlcohol() { return alcohol; }
 	public boolean isTilt() { return tilt; }
+	public double getBarPreference() { return barPreference; }
 
-	// setters used by engine to update gambler condition
-	public void setMoney(int money) { this.money = money; }
-	public void setStress(int stress) { this.stress = clamp0_100(stress); }
-	public void setAlcohol(int alcohol) { this.alcohol = clamp0_100(alcohol); }
-	public void setTilt(boolean tilt) { this.tilt = tilt; }
+	public double getRemovalTime() { return removalTime; }
+	public void setRemovalTime(double removalTime) { this.removalTime = removalTime; }
 
-	// keeps stress and alcohol values inside valid range (0..100)
 	private int clamp0_100(int x) {
 		return Math.max(0, Math.min(100, x));
 	}
 
-	// calculates bet size based on:
-    // available money, stress level, alcohol level and personality risk
-    // tilt gamblers bet more aggressively
+	/**
+	 * Calculates bet size based on money, stress, alcohol and risk.
+	 */
 	public int calcBet() {
-
 		int minBet = 5;
-
-		//not betitng more than half of our balance
-		int maxBet = Math.max(10, money / 2);
+		int maxBet = Math.max(10, money / 2); // never bet more than half of balance
 
 		double stressFactor = 1.0 + (stress / 100.0);
 		double alcoholFactor = 1.0 + (alcohol / 200.0);
 
-		// base bet is 5 procent of our money
-		double base = money * 0.05;
+		double base = money * 0.05; // 5% of money
+		double bet = base * stressFactor * alcoholFactor * risk;
 
-		double bet = base
-				* stressFactor
-				* alcoholFactor
-				* risk;
-
-		int result = (int)Math.round(bet);
-
+		int result = (int) Math.round(bet);
 		result = Math.max(minBet, Math.min(maxBet, result));
 
-		// tilt gamblers bet more aggressively
 		if (tilt) {
-			result = Math.min(maxBet, (int)(result * 1.3));
+			result = Math.min(maxBet, (int) (result * 1.3));
 		}
 
 		return result;
 	}
-	//if customer loses  money stress level gets higher
+
+	/**
+	 * Losing money increases stress.
+	 */
 	public void applyLoss(int amount) {
-
 		money -= amount;
+		stress = clamp0_100(stress + 5);
 
-		stress += 5;
-
-		stress = clamp0_100(stress);
-
+		// if money goes too low, stress jumps a bit (optional, makes bankrupt possible faster)
+		if (money < 30) {
+			stress = clamp0_100(stress + 10);
+		}
 	}
-	//if wins stress levels gets lower
+
+	/**
+	 * Winning money decreases stress slightly.
+	 */
 	public void applyWin(int amount) {
-
 		money += amount;
-
-		stress -= 3;
-
-		stress = clamp0_100(stress);
-
+		stress = clamp0_100(stress - 3);
 	}
-	// visiting bar:
-    // alcohol increases but stress decreases temporarily
+
+	/**
+	 * Visiting bar: alcohol increases, stress decreases temporarily.
+	 */
 	public void applyDrink() {
-
 		alcohol = clamp0_100(alcohol + 15);
-
 		stress = clamp0_100(stress - 10);
 
 		// drunk gamblers sometimes lose control
@@ -139,7 +113,7 @@ public class Customer {
 			tilt = true;
 		}
 	}
-	// checks if gambler has no money left and must exit casino
+
 	public boolean isBankrupt() {
 		return money <= 0;
 	}

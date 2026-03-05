@@ -4,31 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="859b6c97-a44c-41c7-83c0-16e1b2152540" name="Changes" comment="(TOIVOTTAVASTI TÄÄ NYT MENEE LÄPI, en muista enää tarkalleen mitä kaikke tein mutta ainakin: Lisätty kasinon tapahtumalogiikka MyEngineiin.&#10;Lisättiin ruletti palvelupiste ja pelilogiikka.&#10;Toteutettiin juomisen vaikutus (stress ↓, alcohol ↑) sekä tilt-mahdollisuus.&#10;Parannettiin asiakkaan siirtymistä eri pelien välillä.">
-      <change afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/Stats.java" afterDir="false" />
+    <list default="true" id="859b6c97-a44c-41c7-83c0-16e1b2152540" name="Changes" comment="Lisätty kasinon visualisointi GUI:hin. Näytetään pelialueet (Bar, Slots, Blackjack, Roulette), jonopituudet sekä kasinolla olevien asiakkaiden määrä. Lisätty refreshView()-päivitys MyEngineiin ja jonopituuden haku ServicePoint-luokkaan.&#10;&#10;Lisätty myös Stats-luokka ja results-logiikka: kerätään saapuneet/poistuneet, bankrupt- ja profit+low stress -prosentit sekä keskimääräinen stressi ja alkoholi, ja tulokset näytetään UI:ssa.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/controller/IControllerMtoV.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/controller/IControllerMtoV.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/EventType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/EventType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/MyEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/MyEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/ServicePoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/ServicePoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/ISimulatorUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/ISimulatorUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/IVisualisation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/IVisualisation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/SimulatorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/SimulatorGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/Visualisation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/Visualisation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/Visualisation2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/view/Visualisation2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/controller/IControllerMtoV.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/controller/IControllerMtoV.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/EventType.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/EventType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/MyEngine$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/MyEngine$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/MyEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/MyEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/ServicePoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/ServicePoint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/view/ISimulatorUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/view/ISimulatorUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/view/IVisualisation.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/view/IVisualisation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/view/SimulatorGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/view/SimulatorGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/view/Visualisation.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/view/Visualisation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/view/Visualisation2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/view/Visualisation2.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +107,7 @@
       <workItem from="1770725026411" duration="893000" />
       <workItem from="1770725938402" duration="628000" />
       <workItem from="1770726699839" duration="7549000" />
-      <workItem from="1772707955021" duration="5152000" />
+      <workItem from="1772707955021" duration="7671000" />
     </task>
     <task id="LOCAL−00001" summary="commit">
       <option name="closed" value="true" />
@@ -170,7 +151,14 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1772145091560</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="Lisätty kasinon visualisointi GUI:hin. Näytetään pelialueet (Bar, Slots, Blackjack, Roulette), jonopituudet sekä kasinolla olevien asiakkaiden määrä. Lisätty refreshView()-päivitys MyEngineiin ja jonopituuden haku ServicePoint-luokkaan.&#10;&#10;Lisätty myös Stats-luokka ja results-logiikka: kerätään saapuneet/poistuneet, bankrupt- ja profit+low stress -prosentit sekä keskimääräinen stressi ja alkoholi, ja tulokset näytetään UI:ssa.">
+      <option name="closed" value="true" />
+      <created>1772713709017</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1772713709020</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +169,8 @@
     <MESSAGE value="MyEngine ja EventType muokattu. Lisätty esim. eventtyypit baarille ,sloteille ja blackjack." />
     <MESSAGE value="commit" />
     <MESSAGE value="(TOIVOTTAVASTI TÄÄ NYT MENEE LÄPI, en muista enää tarkalleen mitä kaikke tein mutta ainakin: Lisätty kasinon tapahtumalogiikka MyEngineiin.&#10;Lisättiin ruletti palvelupiste ja pelilogiikka.&#10;Toteutettiin juomisen vaikutus (stress ↓, alcohol ↑) sekä tilt-mahdollisuus.&#10;Parannettiin asiakkaan siirtymistä eri pelien välillä." />
-    <option name="LAST_COMMIT_MESSAGE" value="(TOIVOTTAVASTI TÄÄ NYT MENEE LÄPI, en muista enää tarkalleen mitä kaikke tein mutta ainakin: Lisätty kasinon tapahtumalogiikka MyEngineiin.&#10;Lisättiin ruletti palvelupiste ja pelilogiikka.&#10;Toteutettiin juomisen vaikutus (stress ↓, alcohol ↑) sekä tilt-mahdollisuus.&#10;Parannettiin asiakkaan siirtymistä eri pelien välillä." />
+    <MESSAGE value="Lisätty kasinon visualisointi GUI:hin. Näytetään pelialueet (Bar, Slots, Blackjack, Roulette), jonopituudet sekä kasinolla olevien asiakkaiden määrä. Lisätty refreshView()-päivitys MyEngineiin ja jonopituuden haku ServicePoint-luokkaan.&#10;&#10;Lisätty myös Stats-luokka ja results-logiikka: kerätään saapuneet/poistuneet, bankrupt- ja profit+low stress -prosentit sekä keskimääräinen stressi ja alkoholi, ja tulokset näytetään UI:ssa." />
+    <option name="LAST_COMMIT_MESSAGE" value="Lisätty kasinon visualisointi GUI:hin. Näytetään pelialueet (Bar, Slots, Blackjack, Roulette), jonopituudet sekä kasinolla olevien asiakkaiden määrä. Lisätty refreshView()-päivitys MyEngineiin ja jonopituuden haku ServicePoint-luokkaan.&#10;&#10;Lisätty myös Stats-luokka ja results-logiikka: kerätään saapuneet/poistuneet, bankrupt- ja profit+low stress -prosentit sekä keskimääräinen stressi ja alkoholi, ja tulokset näytetään UI:ssa." />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

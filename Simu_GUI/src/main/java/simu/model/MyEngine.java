@@ -118,6 +118,16 @@ public class MyEngine extends Engine {
 		double hour = (now / 60.0) % 24.0;
 		boolean evening = (hour >= 18.0 || hour < 3.0);
 
+		// Bar impulse: small direct chance to go to bar (especially in the evening)
+
+		double baseBarChance = evening ? 0.20 : 0.05;     // 20% evening, 5% daytime
+		double stressBoost = (c.getStress() / 100.0) * 0.20; // up to +20%
+		double barChance = Math.min(0.60, baseBarChance + stressBoost);
+
+		if (rng.nextDouble() < barChance) {
+			servicePoints[0].addQueue(c); // bar
+			return;
+		}
 		double s = c.getStress() / 100.0;    // 0..1
 		double alc = c.getAlcohol() / 100.0; // 0..1
 
@@ -129,6 +139,7 @@ public class MyEngine extends Engine {
 
 		double total = wBar + wSlots + wBlackjack + wRoulette;
 		double r = rng.nextDouble() * total;
+
 
 
 		if (r < wBar) {
