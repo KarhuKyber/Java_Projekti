@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="859b6c97-a44c-41c7-83c0-16e1b2152540" name="Changes" comment="Lisätty kasinon visualisointi GUI:hin. Näytetään pelialueet (Bar, Slots, Blackjack, Roulette), jonopituudet sekä kasinolla olevien asiakkaiden määrä. Lisätty refreshView()-päivitys MyEngineiin ja jonopituuden haku ServicePoint-luokkaan.&#10;&#10;Lisätty myös Stats-luokka ja results-logiikka: kerätään saapuneet/poistuneet, bankrupt- ja profit+low stress -prosentit sekä keskimääräinen stressi ja alkoholi, ja tulokset näytetään UI:ssa.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/MyEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/src/main/java/simu/model/MyEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/Customer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/MyEngine$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/MyEngine$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/MyEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/Simu_GUI/target/classes/simu/model/MyEngine.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +106,7 @@
       <workItem from="1770725026411" duration="893000" />
       <workItem from="1770725938402" duration="628000" />
       <workItem from="1770726699839" duration="7549000" />
-      <workItem from="1772707955021" duration="7671000" />
+      <workItem from="1772707955021" duration="17508000" />
     </task>
     <task id="LOCAL−00001" summary="commit">
       <option name="closed" value="true" />
@@ -158,11 +157,29 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1772713709020</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="Lisätty kasinon visualisointi GUI:hin. Näytetään pelialueet (Bar, Slots, Blackjack, Roulette), jonopituudet sekä kasinolla olevien asiakkaiden määrä. Lisätty refreshView()-päivitys MyEngineiin ja jonopituuden haku ServicePoint-luokkaan.&#10;&#10;Lisätty myös Stats-luokka ja results-logiikka: kerätään saapuneet/poistuneet, bankrupt- ja profit+low stress -prosentit sekä keskimääräinen stressi ja alkoholi, ja tulokset näytetään UI:ssa.">
+      <option name="closed" value="true" />
+      <created>1772716007445</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1772716007445</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lisätty EventType luokkaa ARRIVAL, DECISION, SERVICE_END ja EXIT" />
