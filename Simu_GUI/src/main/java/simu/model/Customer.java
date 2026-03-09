@@ -31,7 +31,7 @@ public class Customer {
 	private boolean tilt;
 
 	public Customer() {
-		startMoney = 100 + (int) (Math.random() * 401); // 100..500
+		startMoney = 80 + (int) (Math.random() * 221); // 100..500
 		money = startMoney;
 
 		stress = 10;
@@ -74,7 +74,7 @@ public class Customer {
 		result = Math.max(minBet, Math.min(maxBet, result));
 
 		if (tilt) {
-			result = Math.min(maxBet, (int) (result * 1.3));
+			result = Math.min(maxBet, (int)(result * 1.8));
 		}
 
 		return result;
@@ -85,11 +85,19 @@ public class Customer {
 	 */
 	public void applyLoss(int amount) {
 		money -= amount;
-		stress = clamp0_100(stress + 7);
 
-		// if money goes too low, stress jumps a bit (optional, makes bankrupt possible faster)
+		stress = clamp0_100(stress + 10);
+
+		if (money < 100) {
+			stress = clamp0_100(stress + 10);
+		}
+
 		if (money < 50) {
 			stress = clamp0_100(stress + 15);
+		}
+
+		if (money < 80 && Math.random() < 0.5) {
+			tilt = true;
 		}
 	}
 

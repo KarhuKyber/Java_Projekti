@@ -31,14 +31,14 @@ public class MyEngine extends Engine {
 
 		// 1 = Slots
 		servicePoints[1] = new ServicePoint(
-				new Normal(10, 5),
+				new Normal(8, 4),
 				eventList,
 				EventType.SLOTS_PLAY_END
 		);
 
 		// 2 = Blackjack
 		servicePoints[2] = new ServicePoint(
-				new Normal(15, 7),
+				new Normal(12, 5),
 				eventList,
 				EventType.BLACKJACK_GAME_END
 		);
@@ -138,18 +138,19 @@ public class MyEngine extends Engine {
 		}
 
 		// 2) Profit + low stress -> sometimes exit
-		if (profitLowStress && rng.nextDouble() < 0.10) {
+		if (profitLowStress && rng.nextDouble() < 0.03) {
 			stats.onExit(c, now, false, true);
 			return;
 		}
 
+
 		// small generic chance to leave after each activity
-		if (rng.nextDouble() < 0.02) {
+		if (rng.nextDouble() < 0.01) {
 			stats.onExit(c, now, false, false);
 			return;
 		}
 		// tired customers may leave even without profit
-		if (c.getStress() > 75 && rng.nextDouble() < 0.15) {
+		if (c.getStress() > 85 && rng.nextDouble() < 0.15) {
 			stats.onExit(c, now, false, false);
 			return;
 		}
@@ -158,8 +159,8 @@ public class MyEngine extends Engine {
 		boolean evening = (hour >= 18.0 || hour < 3.0);
 
 		// --- Direct bar impulse ---
-		double baseBarChance = evening ? 0.20 : 0.05;      // 20% evening, 5% daytime
-		double stressBoost = (c.getStress() / 100.0) * 0.20; // up to +20%
+		double baseBarChance = evening ? 0.10 : 0.02;      // 10% evening, 2% daytime
+		double stressBoost = (c.getStress() / 100.0) * 0.10; // up to +10%
 		double barChance = Math.min(0.60, baseBarChance + stressBoost);
 
 		if (rng.nextDouble() < barChance) {
@@ -171,10 +172,10 @@ public class MyEngine extends Engine {
 		double alc = c.getAlcohol() / 100.0; // 0..1
 
 		// Weights: higher weight => more likely
-		double wBar = (evening ? 2.0 : 0.7) + 2.5 * s + 0.3 * alc;
+		double wBar = (evening ? 1.2 : 0.4) + 1.2 * s + 0.2 * alc;
 		double wSlots = 1.0 + 1.2 * s + 0.6 * alc;
-		double wBlackjack = Math.max(0.2, 1.0 - 0.4 * s - 0.2 * alc);
-		double wRoulette = 1.2 + 1.5 * s + 0.8 * alc;
+		double wBlackjack = Math.max(0.4, 1.2 - 0.3 * s - 0.1 * alc);
+		double wRoulette = 0.8 + 1.0 * s + 0.4 * alc;
 
 		double total = wBar + wSlots + wBlackjack + wRoulette;
 		double r = rng.nextDouble() * total;
