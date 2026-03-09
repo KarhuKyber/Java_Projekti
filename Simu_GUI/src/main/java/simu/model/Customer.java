@@ -85,11 +85,11 @@ public class Customer {
 	 */
 	public void applyLoss(int amount) {
 		money -= amount;
-		stress = clamp0_100(stress + 5);
+		stress = clamp0_100(stress + 7);
 
 		// if money goes too low, stress jumps a bit (optional, makes bankrupt possible faster)
-		if (money < 30) {
-			stress = clamp0_100(stress + 10);
+		if (money < 50) {
+			stress = clamp0_100(stress + 15);
 		}
 	}
 

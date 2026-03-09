@@ -31,27 +31,27 @@ public class MyEngine extends Engine {
 
 		// 1 = Slots
 		servicePoints[1] = new ServicePoint(
-				new Normal(15, 8),
+				new Normal(10, 5),
 				eventList,
 				EventType.SLOTS_PLAY_END
 		);
 
 		// 2 = Blackjack
 		servicePoints[2] = new ServicePoint(
-				new Normal(20, 10),
+				new Normal(15, 7),
 				eventList,
 				EventType.BLACKJACK_GAME_END
 		);
 
 		// 3 = Roulette
 		servicePoints[3] = new ServicePoint(
-				new Normal(12, 6),
+				new Normal(9, 4),
 				eventList,
 				EventType.ROULETTE_GAME_END
 		);
 
 		arrivalProcess = new ArrivalProcess(
-				new Negexp(15, 5),
+				new Negexp(25, 5),
 				eventList,
 				EventType.CASINO_ARRIVAL
 		);
@@ -144,12 +144,12 @@ public class MyEngine extends Engine {
 		}
 
 		// small generic chance to leave after each activity
-		if (rng.nextDouble() < 0.05) {
+		if (rng.nextDouble() < 0.02) {
 			stats.onExit(c, now, false, false);
 			return;
 		}
 		// tired customers may leave even without profit
-		if (c.getStress() > 60 && rng.nextDouble() < 0.20) {
+		if (c.getStress() > 75 && rng.nextDouble() < 0.15) {
 			stats.onExit(c, now, false, false);
 			return;
 		}
